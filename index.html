@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обжим витой пары - Пошаговое руководство для начинающих</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 20px;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+        
+        h1 {
+            color: #667eea;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.2em;
+        }
+        
+        .video-container {
+            background: #000;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 30px 0;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+        }
+        
+        video {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .section {
+            margin: 30px 0;
+            padding: 25px;
+            background: #f8f9ff;
+            border-radius: 10px;
+            border-left: 5px solid #667eea;
+        }
+        
+        h2 {
+            color: #764ba2;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        
+        h3 {
+            color: #667eea;
+            margin: 20px 0 10px 0;
+            font-size: 1.3em;
+        }
+        
+        .step {
+            background: white;
+            padding: 20px;
+            margin: 15px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        
+        .step-number {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 35px;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+        
+        .tools-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .tools-list li {
+            padding: 10px;
+            margin: 8px 0;
+            background: white;
+            border-radius: 5px;
+            padding-left: 35px;
+            position: relative;
+        }
+        
+        .tools-list li:before {
+            content: "🔧";
+            position: absolute;
+            left: 10px;
+        }
+        
+        .warning {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .warning strong {
+            color: #856404;
+        }
+        
+        .tip {
+            background: #d4edda;
+            border-left: 5px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        
+        .tip strong {
+            color: #155724;
+        }
+        
+        .color-scheme {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin: 15px 0;
+        }
+        
+        .wire-colors {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 10px;
+            margin: 15px 0;
+        }
+        
+        .wire-item {
+            padding: 10px;
+            background: #f8f9ff;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .wire-color-box {
+            width: 30px;
+            height: 30px;
+            border-radius: 3px;
+            margin-right: 10px;
+            border: 1px solid #ddd;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 15px 0;
+            background: white;
+        }
+        
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        th {
+            background: #667eea;
+            color: white;
+        }
+        
+        tr:hover {
+            background: #f5f5f5;
+        }
+        
+        .checklist {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        
+        .checklist-item {
+            padding: 8px 0;
+            display: flex;
+            align-items: center;
+        }
+        
+        .checklist-item:before {
+            content: "☐";
+            font-size: 1.5em;
+            margin-right: 10px;
+            color: #667eea;
+        }
+        
+        @media print {
+            body { background: white; }
+            .container { box-shadow: none; }
+            video { display: none; }
+        }
+        
+        @media (max-width: 600px) {
+            .container { padding: 20px; }
+            h1 { font-size: 1.8em; }
+            h2 { font-size: 1.4em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🔌 Обжим витой пары</h1>
+        <p class="subtitle">Полное руководство для начинающих с видеоинструкцией</p>
+        
+        <div class="video-container">
+            <video controls poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 640 360'%3E%3Crect fill='%23667eea' width='640' height='360'/%3E%3Ctext fill='white' font-size='30' x='50%25' y='50%25' text-anchor='middle' dy='.3em'%3EНажмите для воспроизведения%3C/text%3E%3C/svg%3E">
+                <source src="video.mp4" type="video/mp4">
+                Ваш браузер не поддерживает видео.
+            </video>
+        </div>
+        
+        <div class="section">
+            <h2>📋 Что такое витая пара?</h2>
+            <p><strong>Витая пара</strong> — это кабель, состоящий из нескольких пар изолированных проводников, скрученных между собой. Используется для создания компьютерных сетей (Ethernet).</p>
+            
+            <h3>Типы кабелей:</h3>
+            <ul>
+                <li><strong>Прямой кабель</strong> — оба конца обжаты одинаково (компьютер ↔ роутер)</li>
+                <li><strong>Кроссовер</strong> — концы обжаты по-разному (компьютер ↔ компьютер)</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>🛠️ Необходимые инструменты</h2>
+            <ul class="tools-list">
+                <li>Кримпер (обжимные клещи)</li>
+                <li>Коннекторы RJ45 (8P8C)</li>
+                <li>Стриппер или нож для снятия изоляции</li>
+                <li>Тестер кабелей (желательно)</li>
+            </ul>
+            
+            <div class="tip">
+                <strong>💡 Совет:</strong> Кримпер обычно имеет три функции: обжим, снятие изоляции и обрезка кабеля.
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🎨 Стандарты обжима (T568A и T568B)</h2>
+            
+            <h3>Стандарт T568B (наиболее распространенный):</h3>
+            <div class="color-scheme">
+                <div class="wire-colors">
+                    <div class="wire-item">
+                        <div class="wire-color-box" style="background: linear-gradient(90deg, #fff 50%, #ff8c00 50%);"></div>
+                        <span>1. Бело-оранжевый</span>
+                    </div>
+                    <div class="wire-item">
+                        <div class="wire-color-box" style="background: #ff8c00;"></div>
+                        <span>2. Оранжевый</span>
+                    </div>
+                    <div class="wire-item">
+                        <div class="wire-color-box" style="background: linear-gradient(90deg, #fff 50%, #228b22 50%);"></div>
+                        <span>3. Бело-зеленый</span>
+                    </div>
+                    <div class="wire-item">
+                        <div class="wire-color-box" style="background: #0000ff;"></div>
+                        <span>4. Синий</span>
+                    </div>
+                    <div class="wire-item">
+                        <div class="wire-color-box" style="background: linear-gradient(90deg, #fff 50%, #0000ff 50%);"></div>
+                        <span>5. Бело-синий</span>
+                    </div>
+                    <div class="wire-item">
+                        <div class="wire-color-box" style="background: #228b22;"></div>
+                        <span>6. Зеленый</span>
+                    </div>
+                    <div class="wire-item">
+                        <div class="wire-color-box" style="background: linear-gradient(90deg, #fff 50%, #8b4513 50%);"></div>
+                        <span>7. Бело-коричневый</span>
+                    </div>
+                    <div class="wire-item">
+                        <div class="wire-color-box" style="background: #8b4513;"></div>
+                        <span>8. Коричневый</span>
+                    </div>
+                </div>
+            </div>
+            
+            <h3>Стандарт T568A (альтернативный):</h3>
+            <table>
+                <tr><th>Пин</th><th>Цвет</th></tr>
+                <tr><td>1</td><td>Бело-зеленый</td></tr>
+                <tr><td>2</td><td>Зеленый</td></tr>
+                <tr><td>3</td><td>Бело-оранжевый</td></tr>
+                <tr><td>4</td><td>Синий</td></tr>
+                <tr><td>5</td><td>Бело-синий</td></tr>
+                <tr><td>6</td><td>Оранжевый</td></tr>
+                <tr><td>7</td><td>Бело-коричневый</td></tr>
+                <tr><td>8</td><td>Коричневый</td></tr>
+            </table>
+        </div>
+        
+        <div class="section">
+            <h2>📝 Пошаговая инструкция</h2>
+            
+            <div class="step">
+                <span class="step-number">1</span>
+                <strong>Отмерьте и отрежьте кабель</strong>
+                <p>Определите необходимую длину кабеля и отрежьте его с небольшим запасом.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">2</span>
+                <strong>Снимите внешнюю изоляцию</strong>
+                <p>Аккуратно снимите около 2-3 см внешней оболочки кабеля. Используйте стриппер или нож, но будьте осторожны, чтобы не повредить внутренние провода.</p>
+                <div class="tip"><strong>💡 Совет:</strong> На многих кримперах есть специальное лезвие для снятия изоляции.</div>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">3</span>
+                <strong>Раскрутите пары проводов</strong>
+                <p>Раскрутите все четыре пары проводов и выпрямите их. Провода будут скручены попарно — аккуратно разделите их.</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">4</span>
+                <strong>Расположите провода по цветам</strong>
+                <p>Выровняйте провода в правильном порядке согласно стандарту T568B (или T568A). Держите их плотно вместе.</p>
+                <div class="warning"><strong>⚠️ Важно:</strong> Порядок должен быть точным! От этого зависит работоспособность кабеля.</div>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">5</span>
+                <strong>Обрежьте провода</strong>
+                <p>Обрежьте провода так, чтобы они были одной длины (около 1-1.5 см от края изоляции). Используйте кримпер или бокорезы. Срез должен быть ровным!</p>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">6</span>
+                <strong>Вставьте провода в коннектор</strong>
+                <p>Возьмите коннектор RJ45 контактами вверх. Аккуратно вставьте провода до упора. Убедитесь, что:</p>
+                <ul style="margin-left: 20px; margin-top: 10px;">
+                    <li>Все провода дошли до конца</li>
+                    <li>Порядок цветов не нарушился</li>
+                    <li>Внешняя изоляция заходит внутрь коннектора</li>
+                </ul>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">7</span>
+                <strong>Обожмите коннектор</strong>
+                <p>Вставьте коннектор в кримпер в соответствующее гнездо (обычно помечено как 8P). Сильно сожмите ручки кримпера до щелчка.</p>
+                <div class="tip"><strong>💡 Совет:</strong> Не бойтесь сжимать сильно — коннектор рассчитан на такое усилие.</div>
+            </div>
+            
+            <div class="step">
+                <span class="step-number">8</span>
+                <strong>Проверьте соединение</strong>
+                <p>Если есть тестер кабелей, проверьте правильность обжима. Если тестера нет, подключите кабель к устройствам и проверьте соединение.</p>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>✅ Контрольный список</h2>
+            <div class="checklist">
+                <div class="checklist-item">Провода расположены в правильном порядке</div>
+                <div class="checklist-item">Все провода дошли до конца коннектора</div>
+                <div class="checklist-item">Провода обрезаны ровно</div>
+                <div class="checklist-item">Внешняя изоляция заходит в коннектор</div>
+                <div class="checklist-item">Коннектор надежно обжат</div>
+                <div class="checklist-item">Контакты хорошо видны через коннектор</div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>❌ Частые ошибки</h2>
+            <ul style="margin-left: 20px;">
+                <li><strong>Неправильный порядок проводов</strong> — кабель не будет работать</li>
+                <li><strong>Провода не дошли до конца</strong> — плохой контакт</li>
+                <li><strong>Неровный срез</strong> — некоторые провода могут не контачить</li>
+                <li><strong>Слишком длинная зачищенная часть</strong> — кабель будет хрупким</li>
+                <li><strong>Слишком короткая зачищенная часть</strong> — провода не дойдут до контактов</li>
+                <li><strong>Слабый обжим</strong> — коннектор может вывалиться</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>🔍 Как проверить качество?</h2>
+            <h3>Визуальная проверка:</h3>
+            <ul style="margin-left: 20px;">
+                <li>Через прозрачный коннектор должны быть видны все 8 проводов</li>
+                <li>Медные контакты должны быть хорошо прижаты</li>
+                <li>Провода не должны перекрещиваться</li>
+            </ul>
+            
+            <h3>Проверка тестером:</h3>
+            <ul style="margin-left: 20px;">
+                <li>Все 8 индикаторов должны загореться по порядку</li>
+                <li>Если какой-то не горит — провод не контачит</li>
+                <li>Если горят не по порядку — перепутаны провода</li>
+            </ul>
+        </div>
+        
+        <div class="section">
+            <h2>💡 Полезные советы</h2>
+            <ul style="margin-left: 20px;">
+                <li>Всегда используйте один стандарт (T568A или T568B) для всех кабелей в сети</li>
+                <li>Не раскручивайте пары проводов больше, чем необходимо</li>
+                <li>Если обжали неправильно — просто отрежьте коннектор и попробуйте снова</li>
+                <li>Коннекторы дешевые — не бойтесь тренироваться</li>
+                <li>После нескольких попыток получится идеально!</li>
+            </ul>
+        </div>
+        
+        <div class="warning" style="margin-top: 30px;">
+            <strong>📌 Запомните:</strong> Для соединения компьютера с роутером/свитчем используйте прямой кабель (оба конца T568B). Для соединения компьютер-компьютер без свитча нужен кроссовер (один конец T568A, другой T568B).
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px; padding: 20px; background: #f8f9ff; border-radius: 10px;">
+            <h3 style="color: #667eea;">🎓 Теперь вы готовы!</h3>
+            <p>Смотрите видео, следуйте инструкции и у вас всё получится!</p>
+        </div>
+    </div>
+    
+    <script>
+        // Добавляем возможность печати
+        window.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.key === 'p') {
+                window.print();
+            }
+        });
+        
+        // Подсветка шагов при прокрутке
+        const steps = document.querySelectorAll('.step');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.background = '#e8f4f8';
+                } else {
+                    entry.target.style.background = 'white';
+                }
+            });
+        });
+        
+        steps.forEach(step => observer.observe(step));
+    </script>
+</body>
+</html>
